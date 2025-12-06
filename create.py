@@ -1,4 +1,4 @@
-import os, read, write
+import os, read, write, json
 
 def create_file(filename, name):
     
@@ -10,17 +10,20 @@ def create_file(filename, name):
     data.setdefault(name, [])
 
     try:
-        write.write_file(filename, data)
+        with open(filename, "w") as f:
+            json.dump(data, f, indent=4)
         print(f"\nNew file created \nFile name: {filename} \nSystem name: {name}")
         return
-    finally:
+    except Exception as e:
+        print(e)
         return
+
     
     
 def create_system(filename, system_name):
     
     if not os.path.exists(filename):
-        print("File does not exist")
+        print("\nFile does not exist")
         return
     
     content = read.read_file(filename)

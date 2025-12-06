@@ -31,6 +31,8 @@ def update_file(filename, system):
 def appened_file(filename, system):
     
     content = read.read_file(filename)
+    if not content:
+        return
     element = content.get(system)
     if not isinstance(element, list):
         element = []
@@ -41,7 +43,7 @@ def appened_file(filename, system):
     
     try:
         while True:
-            print("Enter key and values. Enter 'stop' to finish.")
+            print("Enter key and values. Enter 'stop' to exit.")
             key = input("Enter key: ").lower().strip()
             if key == 'stop':
                 break

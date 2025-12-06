@@ -1,14 +1,16 @@
 import create, read, update, delete
 
-print("Welcome to School Management System")
+print("\nWelcome to School Management System")
 
 while True:
-        check = int(input("Select the opereations: \n1. Create \n2. Search \n3.Update \n4.Delete \n5.Exit"))
+        print("\nSelect the opereations: \n1. Create \n2. Search \n3. Update \n4. Delete \n5. Exit")
+        check = int(input("\nEnter your choice (1-5 only): "))
         match check:
             
             case 1:
                 try:
-                    check = int(input("1.Create a new file \n2. Create a new system"))
+                    print("\n1. Create a new file \n12. Create a new system ")
+                    check = int(input("\nEnter your choice (1-2 only): "))
                     filename = input("Enter file name: ").lower().strip()
                     name = input("Enter system name: ").lower().strip()
                 
@@ -23,7 +25,8 @@ while True:
                         
             case 2:
                 try:
-                    check = int(input("1. Search file \n2.Search system \n3.Search a record by value \n4.Search all records with matching value"))
+                    print("\n1. Search file \n2. Search system \n3. Search a record by value \n4. Search all records with matching value")
+                    check = int(input("\nEnter your choice (1-4 only): "))
                     filename = input("Enter file name: ").lower().strip()
                     
                     match check:
@@ -53,13 +56,15 @@ while True:
                     
             case 3:
                 try:
-                    check = int(input("1.Append record: \n2.Update exisiting records: "))
+                    print("\n1. Append record \n2. Update exisiting records ")
+                    check = int(input("\nEnter your choice (1-2 only): "))
                     filename = input("Enter filename: ").lower().strip()
-                    system = input("Enter system name: ").lower().strip()
                     match check:
                         case 1:
+                            system = input("Enter system name: ").lower().strip()
                             update.appened_file(filename, system)       
                         case 2:
+                            system = input("Enter system name: ").lower().strip()
                             update.update_file(filename, system)
                             
                 except Exception as e:
@@ -67,7 +72,8 @@ while True:
                     
             case 4:
                 try:
-                    check = int(input("1.Delete file \n2.Delete system \n3.Delete a record by value \n4.Delete all records with matching value"))
+                    print("\n1. Delete file \n2. Delete system \n3. Delete a record by value \n4. Delete all records with matching value")
+                    check = int(input("\nEnter your choice (1-4 only): "))
                     filename = input("Enter file name: ").lower().strip()
                     
                     match check:
@@ -93,5 +99,6 @@ while True:
                 except Exception as e:
                     print(e)
             
-            case 5:
+            case _:
                 break
+                
