@@ -48,7 +48,7 @@ def search_all_value(filename):
     if not element:
         return []
     key = input("Enter key: ").lower().strip()
-    value = input("Enter value").lower().strip()   
+    value = input("Enter value: ").lower().strip()   
     target = [item for item in element if value in item.get(key)]
     if not target:
         print("Value not found")
