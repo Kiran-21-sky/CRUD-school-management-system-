@@ -1,5 +1,4 @@
-from read import read_file
-from search import search_by_key, search_by_value
+from search import search_by_value
 from write import write_file
 
 def update_file(filename, system):
