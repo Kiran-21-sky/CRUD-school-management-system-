@@ -9,17 +9,16 @@ while True:
             
             case 1:
                 try:
-                    print("\n1. Create a new file \n12. Create a new system ")
+                    print("\n1. Create a new file \n2. Create a new system ")
                     check = int(input("\nEnter your choice (1-2 only): "))
                     filename = input("Enter file name: ").lower().strip()
-                    name = input("Enter system name: ").lower().strip()
                 
                     match check:
                         case 1:
-                            create.create_file(filename, name)
+                            create.create_file(filename)
                         
                         case 2:
-                            create.create_system(filename, name)
+                            create.create_system(filename)
                 except Exception as e:
                     print(e)
                         
@@ -34,21 +33,15 @@ while True:
                             print(read.read_file(filename))
                             
                         case 2:
-                            system = input("Enter system name: ").lower().strip()
-                            element, _ = read.search_system(filename, system)
-                            
-                        case 3:
-                            system = input("Enter system name: ").lower().strip()
-                            key = input("Enter the key: ").lower().strip()
-                            value = input("Enter the value: ").lower().strip()
-                            element, _ = read.search_by_value(filename, system, key, value)
+                            element, _ = read.search_system(filename)
                             print(element)
                             
-                        case 4:
-                            system = input("Enter system name: ").lower().strip()
-                            key = input("Enter the key: ").lower().strip()
-                            value = input("Enter the value: ").lower().strip()
-                            element, _ = read.search_all_value(filename, system, key, value)
+                        case 3:
+                            element = read.search_by_value(filename)
+                            print(element)
+                            
+                        case 4:                            
+                            element = read.search_all_value(filename)
                             print(element)
                     
                 except Exception as e:
@@ -61,11 +54,9 @@ while True:
                     filename = input("Enter filename: ").lower().strip()
                     match check:
                         case 1:
-                            system = input("Enter system name: ").lower().strip()
-                            update.appened_file(filename, system)       
+                            update.appened_file(filename)       
                         case 2:
-                            system = input("Enter system name: ").lower().strip()
-                            update.update_file(filename, system)
+                            update.update_file(filename)
                             
                 except Exception as e:
                     print(e)
@@ -81,20 +72,13 @@ while True:
                             delete.delete_file(filename)
                             
                         case 2:
-                            system = input("Enter system name: ").lower().strip()
-                            delete.delete_system(filename, system)
+                            delete.delete_system(filename)
                             
                         case 3:
-                            system = input("Enter system name: ").lower().strip()
-                            key = input("Enter the key: ").lower().strip()
-                            value = input("Enter the value: ").lower().strip()
-                            delete.delete_by_value(filename, system, key, value)
+                            delete.delete_by_value(filename)
                             
                         case 4:
-                            system = input("Enter system name: ").lower().strip()
-                            key = input("Enter the key: ").lower().strip()
-                            value = input("Enter the value: ").lower().strip()
-                            delete.delete_all_value(filename, system, key, value)                            
+                            delete.delete_all_value(filename)                            
                     
                 except Exception as e:
                     print(e)

@@ -18,12 +18,12 @@ def read_file(filename):
         print("File Error")
         return {}
         
-def search_system(filename, system):
+def search_system(filename):
     content = read_file(filename)
     if not content:
-        print("File is empty")
+        print("\nFile is empty")
         return {}
-    
+    system = input("\nEnter system name: ").lower().strip()
     element = content.get(system, [])
     if not element:
         print("System not found")
@@ -31,18 +31,26 @@ def search_system(filename, system):
 
     return element, content
 
-def search_by_value(filename, system, key, value):
-    element, content = search_system(filename, system)
+def search_by_value(filename):
+    element, _ = search_system(filename)
+    if not element:
+        return []
+    key = input("Enter key: ").lower().strip()
+    value = input("Enter value: ").lower().strip()
     target = next((item for item in element if value in item.get(key)), None)
     if not target:
         print("Value not found")
         return []
-    return target, content
+    return target
 
-def search_all_value(filename, system, key, value):
-    element, content = search_system(filename, system)
+def search_all_value(filename):
+    element, _ = search_system(filename)
+    if not element:
+        return []
+    key = input("Enter key: ").lower().strip()
+    value = input("Enter value").lower().strip()   
     target = [item for item in element if value in item.get(key)]
     if not target:
         print("Value not found")
         return
-    return target, content
+    return target
