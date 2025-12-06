@@ -1,0 +1,18 @@
+{
+    "user_list": [
+        {
+            "id": "1",
+            "name": "kiran"
+        },
+        {
+            "id": "2",
+            "name": "shanthi"
+        }
+    ],
+    "admin_list": [
+        {
+            "id": "12",
+            "name": "keerthana"
+        }
+    ]
+}
