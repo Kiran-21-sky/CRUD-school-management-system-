@@ -13,7 +13,7 @@ def search_system(filename, system):
 
     return element, content
 
-def search_by_key(filename, system, key, value):
+def search_by_value(filename, system, key, value):
     element, content = search_system(filename, system)
     target = next((item for item in element if item.get(key) in value), None)
     if not target:
@@ -24,12 +24,12 @@ def search_by_key(filename, system, key, value):
 def search_by_condition(filename, system, condition):
     element, content = search_system(filename, system)
     target = [item for item in element if condition(item)]
-    if not target:
+    if not target:kk
         print("No item matches the given condition")
         return
     return target, content
 
-def search_by_value(filename, system, value):
+def search_all_value(filename, system, value):
     element, content = search_system(filename, system)
     target = [item for item in element if value in element]
     if not target:
