@@ -27,5 +27,3 @@ def update_file(filename, system):
         write_file(filename, data)
         print("Updation successful")
         return
-    
-    print("Hello")
